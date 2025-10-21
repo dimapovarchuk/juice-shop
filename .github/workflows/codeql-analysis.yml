@@ -1,10 +1,10 @@
 name: "CodeQL"
 
 on:
+  workflow_dispatch:   # Додає можливість ручного запуску
   push:
     branches: [ "master" ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ "master" ]
   schedule:
     - cron: '0 0 * * 0'
@@ -22,7 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'javascript', 'typescript' ]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'typescript' ]
 
     steps:
     - name: Checkout repository
